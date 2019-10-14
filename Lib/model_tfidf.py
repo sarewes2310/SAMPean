@@ -24,7 +24,6 @@ class TFIDF:
 		self.fitData(corpus[1])
 
 	"""
-
 	Fungsi iniVectorizer berguna sebagai parameter
 	awal sebelum dataset olah, format data hampir sama 
 	dengan word2vec

@@ -22,10 +22,14 @@ class NLP:
     Crawl twitter Data
     """
     def MineData(self, apiobj, query, pagestocollect = 10):
-        results = apiobj.search(q=query, include_entities='true',
-                                tweet_mode='extended',count='450',
-                                result_type='recent',
-                                include_retweets=True)
+        results = apiobj.search(
+            q=query, 
+            include_entities='true',
+            tweet_mode='extended',
+            count='450',
+            esult_type='recent',
+            include_retweets=True
+        )
         data = results['statuses']
         i=-1
         ratelimit=1
@@ -36,11 +40,14 @@ class NLP:
             mid = results['statuses'][len(results['statuses']) -1]['id']-1
             print(mid)
             print('Jumlah Tweet Per-page : '+str(len(results['statuses'])))
-            results = apiobj.search(q=query, max_id=str(mid)
-                                ,include_entities='true',
-                                tweet_mode='extended',count='450',
-                                result_type='recent',
-                                include_retweets=True)
+            results = apiobj.search(
+                q=query, 
+                max_id=str(mid),
+                include_entities='true',
+                tweet_mode='extended',count='450',
+                result_type='recent',
+                include_retweets=True
+            )
             data+=results['statuses']
             i+=1
             ratelimit = int(apiobj.get_lastfunction_header('x-rate-limit-remaining'))
@@ -54,12 +61,15 @@ class NLP:
     def ProcessHashtags(self, data):
         HashtagData = pd.DataFrame(columns=['HT','ID','Date','RAWDATA_INDEX'])
         for index,twit in enumerate(data):
-            HashtagData = HashtagData.append(pd.DataFrame({'ID':twit['id'],
-                            'Date':pd.to_datetime(twit['created_at']),
-                            'RAWDATA_INDEX':index,
-                            'HT':[hashtag['text'] for hashtag 
-                                    in twit['entities']['hashtags']]})
-                                , ignore_index=True)
+            HashtagData = HashtagData.append(
+                pd.DataFrame({
+                    'ID':twit['id'],
+                    'Date':pd.to_datetime(twit['created_at']),
+                    'RAWDATA_INDEX':index,
+                    'HT':[hashtag['text'] for hashtag in twit['entities']['hashtags']]
+                }), 
+                ignore_index=True
+            )
         return HashtagData
     
     """
@@ -69,10 +79,14 @@ class NLP:
     def ProcessTimestamp(self, data):
         TimestampData = pd.DataFrame(columns=['ID','Date','RAWDATA_INDEX'])   
         for index,twit in enumerate(data):
-            TimestampData = TimestampData.append(pd.DataFrame({'ID':[twit['id']],
-                            'Date':[pd.to_datetime(twit['created_at'])],
-                            'RAWDATA_INDEX':[index]})
-                                , ignore_index=True)
+            TimestampData = TimestampData.append(
+                pd.DataFrame({
+                    'ID':[twit['id']],
+                    'Date':[pd.to_datetime(twit['created_at'])],
+                    'RAWDATA_INDEX':[index]
+                }), 
+                ignore_index=True
+            )
         return TimestampData
     
     """
@@ -83,10 +97,17 @@ class NLP:
     def ProcessSentiment(self, Data):
         SentimentData = pd.DataFrame(columns=['ID','Date','Polarity'], dtype = float)
         for index,twit in enumerate(data):
-            SentimentData = SentimentData.append(pd.DataFrame({'ID':[twit['id']],
-                            'Date':[pd.to_datetime(twit['created_at'])],
-                            'Polarity':[NLP.an.testFromTrained([NLP.an.tfidf_data.transform(twit['full_text'])])]})
-                                , ignore_index=True)
+            SentimentData = SentimentData.append(
+                pd.DataFrame({
+                    'ID':[twit['id']],
+                    'Date':[pd.to_datetime(twit['created_at'])],
+                    'Polarity':[NLP.an.testFromTrained(
+                        [NLP.an.tfidf_data.transform(twit['full_text'])]
+                        )
+                    ]
+                }), 
+                ignore_index=True
+            )
         return SentimentData
     
     """
@@ -97,7 +118,7 @@ class NLP:
         #Note (Penting:)
         #jika terjadi : "TypeError: clean_tweet() missing 1 required positional argument: 'tweet'"
         #atau NameError: name 'an' is not defined
-        #kemungkinan class belum diload, atau sudah diload
+        #kemungkinan class belum diload, atau sudah diload  
         CT = CleanTweet()
         df1 = pd.DataFrame(columns=['retweeted_status', 'ID', 'Username', 'Date', 'Tweet', 'Hashtags', 'RT', 'SA', 'Float'])
         df2 = pd.DataFrame(columns=['IDJsonT', 'Username', 'Date', 'Tweet', 'Hashtags', 'RT', 'SA', 'Float'])

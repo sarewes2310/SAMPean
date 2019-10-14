@@ -78,7 +78,7 @@ Halaman Home Page
 def home():
     #dump(render_template("home.html"))
     #print(url_for('static', filename='ujicoba.css'))
-    return render_template("component/body/home.html",list_css = list_css,list_js = list_js)
+    return render_template("component/body/home2.html",list_css = list_css,list_js = list_js)
 
 """
 Halaman About
