@@ -11,6 +11,7 @@ from datetime import date, datetime
 import pymysql
 pymysql.install_as_MySQLdb() 
 import MySQLdb
+import json
 
 """ Library SENTET """
 from SENTET import SENTET as sentet
@@ -126,7 +127,12 @@ def search():
         dpa = dp[2]   
         #getDB(cari)
         hitung_tweet = len(dpa)
-        return render_template("component/body/hasil.html",list_css = list_css,list_js = list_js, hitung_tweet = hitung_tweet, cari = cari)
+        #return render_template("component/body/hasil.html",list_css = list_css,list_js = list_js, hitung_tweet = hitung_tweet, cari = cari)
+        now = datetime.now()
+        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+        data = { 'cari' : cari, 'jumlah' : hitung_tweet, 'access' : dt_string}
+        return json.dumps(data)
+
     return cari
 
 
@@ -144,7 +150,7 @@ def api_network(version):
     """
     for i in df.loc[:,'Hashtags']:
         if pd.isnull(i) is False:
-            for j in str(i).split(" "):
+            for j in str(i).split(" "): 
                 if j is not "":
                     hasil.append(j.lower())
     

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SENTER</title>
+    <title>SAMPean</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -32,8 +32,8 @@
         .container-fluid.pad_head_isi{
             padding-top: 8vh;
             padding-bottom: 8vh;
-            padding-right: 8vh;
-            padding-left: 8vh;
+            padding-right: 0vh;
+            padding-left: 0vh;
         }
         @font-face {
             font-family: 'Material Icons';
@@ -96,11 +96,22 @@
         .gradient-color-fitur i:before{
             display: inline;
         }
+        .col-6.col-isi{
+            padding-top: 5vh !important;
+            padding-bottom: 5vh !important;
+        }
+        .col-left-right{
+            padding-left: 5vh !important;
+            padding-right: 5vh !important;
+        }
         .card:hover{
             animation: crescendo 1.5s alternate;
         }
         @keyframes crescendo {
             80% {transform: scale(1.1);}
+        }
+        body{
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -117,10 +128,10 @@
                         <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Doc</a>
+                        <a class="nav-link text-light" href="#">Docs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Tentang</a>
+                        <a class="nav-link text-light" href="#">About</a>
                     </li>
                 </ul>
             </div>
@@ -134,7 +145,7 @@
                 <div class="col-9">
                     <h1 class="display-4">SAMPean</h1>
                     <p class="lead">
-                        SAMPean merupakan RESTfull API yang menyediakan fitur untuk mendeteksi email atau pesan mengandung spam penipuan. #saftey#antipenipuan
+                        SAMPean merupakan API yang berguna untuk mendeteksi email atau pesan mengandung isi penipuan atau promosi. #saftey#antipenipuan
                     </p>
                 </div>
             </div>  
@@ -144,7 +155,7 @@
     <div class="container pad_head_isi">
         <div class="row">
             <div class="col d-flex justify-content-center " style="margin-bottom: 5vh; margin-top: 2vh">
-                <h4>Produk ini juga menyediakan fitur</h4>  
+                <h4><b>SAMPean</b> menawarkan beberapa fitur</h4>  
             </div>
         </div>
         <div class="row">
@@ -186,9 +197,10 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid pad_head_isi">
         <div class="row">
-            <div class="col-7">
+            <div class="col-6 col-left-right">
                 <div class="row">
                     <div class="col-2">
                         <div class="gradient-color-fitur">
@@ -202,19 +214,19 @@
                 </div>
                 <div>
                     <p> 
-                        Dalam menganalisis spam produk ini menggunakan algoritma <b>word2vec</b> sebagai ekstraksi fitur dari 
-                        email atau pesan yang dicurigai sebagai <b>SPAM</b>
+                        Dalam menganalisis email, produk ini menggunakan algoritma <b>word2vec</b> sebagai ekstraksi fitur dari 
+                        isi email menghasilkan suatu bobot yang nantinya akan dilakukan proses klasifikasi kedalam beberapa kategori
                     </p>
                 </div>
             </div>
-            <div class="col-5">
-                <img src="{{url_for('static',filename='asset/Fitur/Analisis_Email.PNG')}}" width="100%">
+            <div class="col-6">
+                <img src="{{url_for('static',filename='asset/Fitur/Analisis_email_2.PNG')}}" width="100%">
             </div>
             
-            <div class="col-5">
-                <img src="{{url_for('static',filename='asset/Fitur/Analisis_Email.PNG')}}" width="100%">
+            <div class="col-6">
+                <img src="{{url_for('static',filename='asset/wordcloud/WordCloud_1.png')}}" width="100%">
             </div>
-            <div class="col-7">
+            <div class="col-6 col-isi col-left-right">
                 <div class="row">
                     <div class="col-2">
                         <div class="gradient-color-fitur">
@@ -234,7 +246,7 @@
                 </div>
             </div>
 
-            <div class="col-7">
+            <div class="col-6 col-isi col-left-right">
                 <div class="row">
                     <div class="col-2">
                         <div class="gradient-color-fitur">
@@ -253,8 +265,8 @@
                     </p>
                 </div>
             </div>
-            <div class="col-5">
-                <img src="{{url_for('static',filename='asset/Fitur/Analisis_Email.PNG')}}" width="100%">
+            <div class="col-6">
+                <img src="{{url_for('static',filename='asset/Fitur/endpoint_system.PNG')}}" width="100%">
             </div>
         </div>
     </div>
