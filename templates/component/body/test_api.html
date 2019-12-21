@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAMPean</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style type="text/css" media="screen">
+        .trans{
+            background-color: transparent !important;
+            color: white !important;
+        }   
+        .header_background{
+            background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+        } 
+        .header_size{
+            min-height: 45vh !important; 
+        }
+        #sampean_logo{
+            width: 100%;
+        }
+        .pad_head_isi{
+            padding-top: 3vh;
+        }
+        .head-fitur{
+            padding-top: 1vh;
+            padding-bottom: 1vh;
+        }
+        .container-fluid.pad_head_isi{
+            padding-top: 8vh;
+            padding-bottom: 8vh;
+            padding-right: 0vh;
+            padding-left: 0vh;
+        }
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src:url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+            src:local('Material Icons'),
+                local('MaterialIcons-Regular'),
+                url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+                url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+                url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+        }
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;  /* Preferred icon size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+
+            /* Support for all WebKit browsers. */
+            -webkit-font-smoothing: antialiased;
+            /* Support for Safari and Chrome. */
+            text-rendering: optimizeLegibility;
+
+            /* Support for Firefox. */
+            -moz-osx-font-smoothing: grayscale;
+
+            /* Support for IE. */
+            font-feature-settings: 'liga';
+        }
+        .material-icons.md-80 { 
+            font-size: 80px; 
+            justify-content: center;
+        }
+        .material-icons.md-100 { 
+            font-size: 160px; 
+            justify-content: center;
+        }
+        .material-icons.md-100.cener-group{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 14%;
+        }
+        .gradient-color-fitur{
+            background:-moz-linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+            background: -webkit-linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+            background: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+           -webkit-text-fill-color:transparent;
+        }
+        .gradient-color-fitur i:before{
+            display: inline;
+        }
+        .col-6.col-isi{
+            padding-top: 5vh !important;
+            padding-bottom: 5vh !important;
+        }
+        .col-left-right{
+            padding-left: 5vh !important;
+            padding-right: 5vh !important;
+        }
+        .card:hover{
+            animation: crescendo 1.5s alternate;
+        }
+        @keyframes crescendo {
+            80% {transform: scale(1.1);}
+        }
+        body{
+            overflow-x: hidden;
+        }
+        .contoh_api{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_background">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand text-light" href="#">SAMPean</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Docs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 menu_api"></div>
+            <div class="col-7 ket_api"></div>
+            <div class="col-3 contoh_api">
+                
+            </div>
+        </div>
+    </div>
+    <!-- 
+    <div class="content" id="content">
+        <div class="container-flex">
+            <div class="item-s-12 item-m-6 item-l-6">
+                <canvas id="myChart"></canvas>
+                <p><b>Sentiment Analysis Hastag #2019GantiPresiden</b></p>
+            </div>
+            <div class="item-s-12 item-m-6 item-l-6">
+                <img src="{{url_for('static',filename='asset/wordcloud/WordCloud.png')}}" class="wordcloud">
+                <p><b>Wordcloud Hastag #2019GantiPresiden</b></p>
+            </div>
+        </div>
+        <div class="container-flex">
+            <div class="item-s-12 item-m-12 item-l-12">
+                <div id="coeg"></div>
+                <p><b>Network Hastag #2019GantiPresiden</b></p>
+            </div>
+        </div>
+    </div> -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

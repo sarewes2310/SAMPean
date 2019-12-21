@@ -110,7 +110,8 @@ def getApi():
                
 @app.route("/ujicoba")
 def uji():
-    return json.dumps(Markup.escape(render_template("ujicoba.html")))
+    return j
+    son.dumps(Markup.escape(render_template("ujicoba.html")))
     #return json.dumps(posts)
 
 
